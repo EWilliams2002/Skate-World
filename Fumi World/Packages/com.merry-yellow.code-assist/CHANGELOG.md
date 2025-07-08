@@ -1,5 +1,36 @@
 List of new features, bug fixes and improvements
 
+# Version 1.4.15
+* Hotfix for code completion for attributes
+
+# Version 1.4.14
+* New code completions: Attributes and preprocessor directives (#if, #elif)
+* New gpt feature: Add mode, gpt can add new files to the project
+* New gpt feature: For CodeLens, follow-up question and custom prompt
+* Gpt responses are logged to Visual Studio output window
+
+# Version 1.4.13
+* Hotfix for gpt requests of OpenAI-API-Compatible platforms
+
+# Version 1.4.12
+* Additional properties options added for gpt requests
+* Version number mistype fix for Unity asset package
+
+# Version 1.4.11
+* Hotfix for gpt options page
+* Fix for applying transformers for newer versions of Visual Studio
+* Arm64 architecture support
+
+# Version 1.4.10
+* Animations added to context aware instructions
+* Hotfix for context aware integrations (for GitHub Copilot)
+
+# Version 1.4.9
+* Hotfix for gpt options page
+
+# Version 1.4.8
+* Version bump for sister Visual Studio extensions
+
 # Version 1.4.7
 * New gpt feature: Integration into GitHub Copilot. Can now feed GitHub Copilot with project/scene/game-object details.
 * Auto updater for itch.io builds
