@@ -12,6 +12,7 @@ public class PlayerWalkState : PlayerBaseState
     : base(currentContext, playerStateFactory){}
 
     public override void EnterState(){
+
         Debug.Log("Walking state");
         Ctx.Animator.SetBool(Ctx.IsWalkingHash, true);
         //Ctx.Animator.SetBool(Ctx.IsRunningHash, false);
@@ -19,8 +20,6 @@ public class PlayerWalkState : PlayerBaseState
     }
 
     public override void UpdateState(){
-
-        
 
 
         Vector2 inputTarget = Ctx.CurrentMovementInput;
@@ -49,35 +48,33 @@ public class PlayerWalkState : PlayerBaseState
         //Ctx.AppliedMovementX = Ctx.CurrentMovementInput.x;
         //Ctx.AppliedMovementZ = Ctx.CurrentMovementInput.y;
 
-        // Rotation of character to point towards move direction
-
-        Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
-
         
+
 
         if (inputTarget.y < 0 && inputTarget.x == 0)
         {
            
             if (Ctx.OrbFollow != null)  
             {
-                Debug.Log("going bacck");
+                //Debug.Log("going bacck");
                 Ctx.OrbFollow.HorizontalAxis.CancelRecentering();
             }
        
         }
 
+
         if (movementDirection != Vector3.zero)
         {
+            // Direction/rotation of camera
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            // Rotation of character to point towards move direction
             Ctx.CharacterController.transform.rotation = Quaternion.RotateTowards(Ctx.CharacterController.transform.rotation, toRotation, Ctx.RotationSpeed * Time.deltaTime);
+        
         }
 
-        //if (Ctx.CurrentMovementInput == Vector2.right || Ctx.CurrentMovementInput == Vector2.left)
-        //{
-            
-        //    Ctx.OrbFollow.transform.rotation = Quaternion.RotateTowards(Ctx.OrbFollow.transform.rotation, toRotation, 360f * Time.deltaTime);
-        //}
-
         CheckSwitchStates();
+
     }
 
     public override void ExitState(){}
@@ -85,11 +82,19 @@ public class PlayerWalkState : PlayerBaseState
     public override void InitializeSubState(){}
 
     public override void CheckSwitchStates() {
+
         if (!Ctx.IsMovementPressed) {
+
             SwitchState(Factory.Idle());
+
         }
+
+        if (Ctx.IsJumpPressed && !Ctx.RequireNewJumpPress)
+        {
+            //Debug.Log("hye there");
+            SwitchState(Factory.Jump());
+        }
+
     }
 
-
 }
-

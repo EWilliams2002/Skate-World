@@ -571,12 +571,13 @@ MonoBehaviour:
   _playerCamera: {fileID: 2649645328449617723}
   _animator: {fileID: 283312300086322929}
   locoBlendSpeed: 15
+  _orbFollow: {fileID: 89374026155620492}
   _runAcceleration: 500
   _runSpeed: 20
   _drag: 30
   _rotationSpeed: 720
   _maxJumpHeight: 4
-  _maxJumpTime: 0.75
+  _maxJumpTime: 0.6
 --- !u!1 &2125934228490440107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1833,8 +1834,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6583162543385626660}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.065305606, y: -1e-45, z: 0, w: 0.9978653}
-  m_LocalPosition: {x: 0, y: 1.018857, z: -7.740127}
+  m_LocalRotation: {x: 0.053013775, y: -3.7853726e-10, z: 2.1897721e-11, w: 0.99859387}
+  m_LocalPosition: {x: 0, y: -0.052000046, z: -7.6879787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1922,12 +1923,12 @@ MonoBehaviour:
     Range: {x: -180, y: 180}
     Wrap: 1
     Recentering:
-      Enabled: 0
-      Wait: 1
+      Enabled: 1
+      Wait: 0.5
       Time: 2
     Restrictions: 0
   VerticalAxis:
-    Value: 31
+    Value: 17.5
     Center: 17.5
     Range: {x: -10, y: 45}
     Wrap: 0
@@ -1959,15 +1960,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Composition:
-    ScreenPosition: {x: 0, y: 0}
+    ScreenPosition: {x: 0, y: -0.1}
     DeadZone:
-      Enabled: 0
-      Size: {x: 0.2, y: 0.2}
+      Enabled: 1
+      Size: {x: 0.5, y: 0.24}
     HardLimits:
       Enabled: 0
-      Size: {x: 0.8, y: 0.8}
+      Size: {x: 0.5, y: 0.36}
       Offset: {x: 0, y: 0}
-  CenterOnActivate: 0
+  CenterOnActivate: 1
   TargetOffset: {x: 0, y: 0, z: 0}
   Damping: {x: 0.5, y: 0.5}
   Lookahead:
@@ -1994,7 +1995,7 @@ MonoBehaviour:
     Controllers:
     - Name: Look Orbit X
       Owner: {fileID: 89374026155620492}
-      Enabled: 0
+      Enabled: 1
       Input:
         InputAction: {fileID: 2358436638689670976, guid: 82d1f2c5f5d2a334fb66071ca9c8b7ef, type: 3}
         Gain: 6
@@ -2442,8 +2443,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7747235559581442208}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.06539353, y: 0.000000007434634, z: -4.872198e-10, w: 0.99785954}
-  m_LocalPosition: {x: 0, y: 1.018857, z: -7.740127}
+  m_LocalRotation: {x: 0.053013783, y: 0.0000000020809998, z: -1.10477e-10, w: 0.9985938}
+  m_LocalPosition: {x: 0, y: -0.052000046, z: -7.6879787}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

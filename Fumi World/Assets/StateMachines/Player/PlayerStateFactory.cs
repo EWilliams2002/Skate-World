@@ -12,6 +12,7 @@ enum PlayerStates {
 namespace SkateWorld.FinalCharacterController {
     public class PlayerStateFactory
     {
+
         PlayerStateMachine _context;
         Dictionary<PlayerStates, PlayerBaseState> _states = new Dictionary<PlayerStates, PlayerBaseState>();
 

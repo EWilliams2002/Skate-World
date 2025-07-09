@@ -33,6 +33,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Mount",
+                    "type": "Button",
+                    "id": "934db4d1-3026-4841-aae4-cde307b7eb57",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Zoom",
                     "type": "Value",
                     "id": "6c2676a8-9305-44e6-8926-64c2a6a1637a",
@@ -169,7 +178,7 @@
                     "id": "79ea5c0f-0c2a-466b-8147-4533b194e1b6",
                     "path": "<Gamepad>/rightStick",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "DeltaTimeScale",
                     "groups": "",
                     "action": "Look",
                     "isComposite": false,
@@ -205,6 +214,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f8779935-db34-48a8-ac93-9d559ca73c86",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mount",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b559a036-def6-4bc8-97ae-8883fd55217f",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Mount",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

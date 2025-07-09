@@ -14,39 +14,49 @@ public class PlayerFallState : PlayerBaseState, IRootState
         Debug.Log("falling state");
         InitializeSubState();
         Ctx.Animator.SetBool(Ctx.IsFallingHash, true);
+
     }
 
     public override void UpdateState() {
-      HandleGravity();
-      CheckSwitchStates();
+
+        HandleGravity();
+        CheckSwitchStates();
     }
 
     public override void ExitState() {
-      Ctx.Animator.SetBool(Ctx.IsFallingHash, false);
+
+        Ctx.Animator.SetBool(Ctx.IsFallingHash, false);
     }
 
     public void HandleGravity() {
-      float previousYVelocity = Ctx.CurrentMovementY;
-      Ctx.CurrentMovementY = Ctx.CurrentMovementY + Ctx.Gravity * Time.deltaTime;
-      Ctx.AppliedMovementY = Mathf.Max((previousYVelocity + Ctx.CurrentMovementY) * .5f, -20.0f);
+
+        float previousYVelocity = Ctx.CurrentMovementY;
+        Ctx.CurrentMovementY = Ctx.CurrentMovementY + Ctx.Gravity * Time.deltaTime;
+        Ctx.AppliedMovementY = Mathf.Max((previousYVelocity + Ctx.CurrentMovementY) * .5f, -20.0f);
+
+
     }
 
     public override void CheckSwitchStates() {
-      // if player is grounded, switch to the grounded state
-      if (Ctx.CharacterController.isGrounded) {
-        SwitchState(Factory.Grounded());
-      }
+
+        // if player is grounded, switch to the grounded state
+        if (Ctx.CharacterController.isGrounded) {
+
+            SwitchState(Factory.Grounded());
+
+        }
+
     }
 
     public override void InitializeSubState() {
-      if (!Ctx.IsMovementPressed) {
-        SetSubState(Factory.Idle());
-      } else if (Ctx.IsMovementPressed) {
-        SetSubState(Factory.Walk());
-      } 
+
+        if (!Ctx.IsMovementPressed) {
+
+            SetSubState(Factory.Idle());
+
+        } else if (Ctx.IsMovementPressed) {
+
+            SetSubState(Factory.Walk());
+        } 
     }
 }
-
-
-
-

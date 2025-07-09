@@ -121,6 +121,15 @@ namespace SkateWorld.FinalCharacterController
                     ""initialStateCheck"": false
                 },
                 {
+                    ""name"": ""Mount"",
+                    ""type"": ""Button"",
+                    ""id"": ""934db4d1-3026-4841-aae4-cde307b7eb57"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Zoom"",
                     ""type"": ""Value"",
                     ""id"": ""6c2676a8-9305-44e6-8926-64c2a6a1637a"",
@@ -257,7 +266,7 @@ namespace SkateWorld.FinalCharacterController
                     ""id"": ""79ea5c0f-0c2a-466b-8147-4533b194e1b6"",
                     ""path"": ""<Gamepad>/rightStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""DeltaTimeScale"",
                     ""groups"": """",
                     ""action"": ""Look"",
                     ""isComposite"": false,
@@ -295,6 +304,28 @@ namespace SkateWorld.FinalCharacterController
                     ""action"": ""Zoom"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f8779935-db34-48a8-ac93-9d559ca73c86"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mount"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b559a036-def6-4bc8-97ae-8883fd55217f"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Mount"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -306,6 +337,7 @@ namespace SkateWorld.FinalCharacterController
             m_CharacterControls_Movement = m_CharacterControls.FindAction("Movement", throwIfNotFound: true);
             m_CharacterControls_Look = m_CharacterControls.FindAction("Look", throwIfNotFound: true);
             m_CharacterControls_Jump = m_CharacterControls.FindAction("Jump", throwIfNotFound: true);
+            m_CharacterControls_Mount = m_CharacterControls.FindAction("Mount", throwIfNotFound: true);
             m_CharacterControls_Zoom = m_CharacterControls.FindAction("Zoom", throwIfNotFound: true);
         }
 
@@ -390,6 +422,7 @@ namespace SkateWorld.FinalCharacterController
         private readonly InputAction m_CharacterControls_Movement;
         private readonly InputAction m_CharacterControls_Look;
         private readonly InputAction m_CharacterControls_Jump;
+        private readonly InputAction m_CharacterControls_Mount;
         private readonly InputAction m_CharacterControls_Zoom;
         /// <summary>
         /// Provides access to input actions defined in input action map "CharacterControls".
@@ -414,6 +447,10 @@ namespace SkateWorld.FinalCharacterController
             /// Provides access to the underlying input action "CharacterControls/Jump".
             /// </summary>
             public InputAction @Jump => m_Wrapper.m_CharacterControls_Jump;
+            /// <summary>
+            /// Provides access to the underlying input action "CharacterControls/Mount".
+            /// </summary>
+            public InputAction @Mount => m_Wrapper.m_CharacterControls_Mount;
             /// <summary>
             /// Provides access to the underlying input action "CharacterControls/Zoom".
             /// </summary>
@@ -453,6 +490,9 @@ namespace SkateWorld.FinalCharacterController
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Mount.started += instance.OnMount;
+                @Mount.performed += instance.OnMount;
+                @Mount.canceled += instance.OnMount;
                 @Zoom.started += instance.OnZoom;
                 @Zoom.performed += instance.OnZoom;
                 @Zoom.canceled += instance.OnZoom;
@@ -476,6 +516,9 @@ namespace SkateWorld.FinalCharacterController
                 @Jump.started -= instance.OnJump;
                 @Jump.performed -= instance.OnJump;
                 @Jump.canceled -= instance.OnJump;
+                @Mount.started -= instance.OnMount;
+                @Mount.performed -= instance.OnMount;
+                @Mount.canceled -= instance.OnMount;
                 @Zoom.started -= instance.OnZoom;
                 @Zoom.performed -= instance.OnZoom;
                 @Zoom.canceled -= instance.OnZoom;
@@ -540,6 +583,13 @@ namespace SkateWorld.FinalCharacterController
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnJump(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Mount" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnMount(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "Zoom" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
