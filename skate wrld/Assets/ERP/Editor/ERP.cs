@@ -17,6 +17,16 @@ namespace ERP
     [InitializeOnLoad]
     public static class ERP
     {
+
+        public static string realProjectName = "skate wrld";
+
+
+
+
+
+
+
+
         private const string applicationId = "509465267630374935";
         private const string prefix = "<b>ERP</b>";
 
@@ -85,7 +95,7 @@ namespace ERP
 
             lastSessionID = EditorAnalyticsSessionInfo.id;
 
-            projectName = Application.productName;
+            projectName = realProjectName;
             sceneName = EditorSceneManager.GetActiveScene().name;
             UpdateActivity();
 
@@ -114,7 +124,7 @@ namespace ERP
             if (discord == null)
                 Init();
 
-            projectName = Application.productName;
+            projectName = realProjectName;
             sceneName = EditorSceneManager.GetActiveScene().name;
 
             var activityManager = discord.GetActivityManager();
